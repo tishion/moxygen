@@ -1,4 +1,8 @@
-## {{kind}} `{{name}}` {{anchor refid}}
+---
+title: {{name}}
+---
+
+# {{kind}} `{{name}}` {{anchor refid}}
 
 {{#if basecompoundref}}
 ```
@@ -13,18 +17,21 @@
 
 {{detaileddescription}}
 
-### Summary
+## Summary
 
  Members                        | Descriptions                                
 --------------------------------|---------------------------------------------
-{{#each filtered.compounds}}{{cell proto}}        | {{cell summary}}
-{{/each}}{{#each filtered.members}}{{cell proto}} | {{cell summary}}
+{{#each filtered.compounds}}
+{{cell proto}}                  | {{cell summary}}
+{{/each}}
+{{#each filtered.members}}
+{{cell proto}}                  | {{cell summary}}
 {{/each}}
 
-### Members
+## Members
 
 {{#each filtered.compounds}}
-#### {{title proto}} {{anchor refid}}
+### {{title proto}} {{anchor refid}}
 
 {{briefdescription}}
 
@@ -32,7 +39,12 @@
 {{/each}}
 
 {{#each filtered.members}}
-#### {{title proto}} {{anchor refid}}
+---
+### {{title proto}} {{anchor refid}}
+
+{{briefdescription}}
+
+{{detaileddescription}}
 
 {{#if enumvalue}}
  Values                         | Descriptions                                
@@ -40,9 +52,5 @@
 {{#each enumvalue}}{{cell name}}            | {{cell summary}}
 {{/each}}
 {{/if}}
-
-{{briefdescription}}
-
-{{detaileddescription}}
 
 {{/each}}
